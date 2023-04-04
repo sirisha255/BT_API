@@ -20,7 +20,7 @@ namespace BT_API.Models
 
         public string? CO2 { get; set; }
 
-        public string? Marking { get; set; }
+        public int? Mark1 { get; set; }
 
         public string? Origin { get; set; }
 

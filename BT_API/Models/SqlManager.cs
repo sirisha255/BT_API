@@ -74,7 +74,10 @@ namespace BT_API.Models
                 MySqlCommand myCommand = new MySqlCommand(query);
 
                 myCommand.Connection = conn;
-                conn.Open();
+                if (conn != null)
+                {
+                    conn.Open();
+                }
                 result = myCommand.ExecuteNonQuery();
                 myCommand.Connection.Close();
             }

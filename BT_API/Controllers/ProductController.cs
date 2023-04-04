@@ -27,6 +27,7 @@ namespace BT_API.Controllers
 
             return productRes;
         }
+      
         [HttpGet("Get")]
         public ProductResponse Get(int id)
         {
