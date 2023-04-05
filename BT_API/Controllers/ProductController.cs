@@ -41,7 +41,7 @@ namespace BT_API.Controllers
         {
             if (productData == null || id == 0)
                 return new ProductResponse { Error = new Error { ErrorMessage = "Invalid data" } };
-            productData.Index = id;
+            productData.Id = id;
             var productResp = _context.Update(productData);
             if (productResp == null)
                 return new ProductResponse { Error = new Error { ErrorMessage = "No data. Please try again." } };

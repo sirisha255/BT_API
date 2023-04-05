@@ -7,7 +7,7 @@ namespace BT_API.Models
     public class Product
     {
         [Key]
-        public int Index { get; set; }
+        public int Id { get; set; }
         [Required]
         [Column(TypeName = "nvarchar(250)'")]
         public string? Product_Name { get; set; }
@@ -23,6 +23,6 @@ namespace BT_API.Models
         public int? Mark1 { get; set; }
 
         public string? Origin { get; set; }
-
+       
     }
 }
