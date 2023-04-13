@@ -14,7 +14,7 @@ namespace BT_API.Models
                 Console.WriteLine("Failed to connect to the database!");
             }
             Console.WriteLine("Connect to the database was successful.\n");
-            int i = sql.ExecuteQuery("INSERT INTO product(BarCode,Mark1,Description,Origin,Manufacturer,Product_Name,CO2,Id) values ('" + item.BarCode + "','" + item.Mark1 + "','" + item.Description + "','" + item.Origin + "','" + item.Manufacturer + "','" + item.Product_Name + "','" + item.CO2 + "','"+ item.Id +"' )");
+            int i = sql.ExecuteQuery("INSERT INTO product(Barcode,Marking,Description,Origin,Manufacturer,ProductName,CO2,Id) values ('" + item.Barcode + "','" + item.Marking + "','" + item.Description + "','" + item.Origin + "','" + item.Manufacturer + "','" + item.ProductName + "','" + item.CO2 + "','"+ item.Id +"' )");
             if (i < 0)
             {
                 response.Status = false;
@@ -50,12 +50,12 @@ namespace BT_API.Models
                     while (reader.Read())
                     {
                         product = new Product();
-                        product.BarCode = reader.GetString("BarCode");
-                        product.Mark1 = reader.GetInt32("Mark1");
+                        product.Barcode = reader.GetString("BarCode");
+                        product.Marking = reader.GetInt32("Marking");
                         product.Description = reader.GetString("Description");
                         product.Origin = reader.GetString("Origin");
                         product.Manufacturer = reader.GetString("Manufacturer");
-                        product.Product_Name = reader.GetString("Product_Name");
+                        product.ProductName = reader.GetString("ProductName");
                         product.CO2 = reader.GetString("CO2");
                         product.Id = reader.GetInt32("Id");
                     }
@@ -95,12 +95,12 @@ namespace BT_API.Models
                     while (reader.Read())
                     {
                         product = new Product();
-                        product.BarCode = reader.GetString("BarCode");
-                        product.Mark1 = reader.GetInt32("Mark1");
+                        product.Barcode = reader.GetString("Barcode");
+                        product.Marking = reader.GetInt32("Marking");
                         product.Description = reader.GetString("Description");
                         product.Origin = reader.GetString("Origin");
                         product.Manufacturer = reader.GetString("Manufacturer");
-                        product.Product_Name = reader.GetString("Product_Name");
+                        product.ProductName = reader.GetString("ProductName");
                         product.CO2 = reader.GetString("CO2");
                         product.Id = reader.GetInt32("Id");
                         products.Add(product);
@@ -150,7 +150,7 @@ namespace BT_API.Models
                 Console.WriteLine("Failed to connect to the database!");
             }
             Console.WriteLine("Connect to the database was successful.\n");
-            int i = sql.ExecuteQuery("UPDATE product set Product_Name='" + item.Product_Name + "',BarCode='" + item.BarCode + "',CO2 = '" + item.CO2 + "',Description='" + item.Description + "',Mark1='" + item.Mark1 + "',Manufacturer='" + item.Manufacturer + "',Origin='" + item.Origin + "' where Id= '" + item.Id + "';");
+            int i = sql.ExecuteQuery("UPDATE product set Product_Name='" + item.ProductName + "',Barcode='" + item.Barcode + "',CO2 = '" + item.CO2 + "',Description='" + item.Description + "',Marking='" + item.Marking + "',Manufacturer='" + item.Manufacturer + "',Origin='" + item.Origin + "' where Id= '" + item.Id + "';");
             if (i < 0)
             {
                 response.Status = false;
