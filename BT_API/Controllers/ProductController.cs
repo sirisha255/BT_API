@@ -14,13 +14,13 @@ namespace BT_API.Controllers
         {
             _context = context;
         }
-        [HttpGet("GetAll")]
+        [HttpGet]
         public ProductResponse GetAllProducts()
         {
             return _context.GetAll();
         }
 
-        [HttpPost("CreateProduct")]
+        [HttpPost("Add")]
         public ProductResponse Post(Product product)
         {
             var productRes = _context.Add(product);
@@ -28,7 +28,7 @@ namespace BT_API.Controllers
             return productRes;
         }
       
-        [HttpGet("Get")]
+        [HttpGet("/{id}")]
         public ProductResponse Get(int id)
         {
             var product = _context.Get(id);
@@ -36,7 +36,7 @@ namespace BT_API.Controllers
                 return new ProductResponse { Error = new Error { ErrorMessage = "No data. Please try again." } };
             return product;
         }
-        [HttpPut("UpdateProduct")]
+        [HttpPut("/{id}")]
         public ProductResponse Put(int id, Product productData)
         {
             if (productData == null || id == 0)
@@ -47,7 +47,7 @@ namespace BT_API.Controllers
                 return new ProductResponse { Error = new Error { ErrorMessage = "No data. Please try again." } };
             return productResp;
         }
-        [HttpDelete("DeleteProduct")]
+        [HttpDelete("Remove")]
         public ProductResponse Delete(int id)
         {
             var productResp = _context.Remove(id);
