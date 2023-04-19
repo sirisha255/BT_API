@@ -10,7 +10,7 @@ namespace BT_API.Models
         public int Id { get; set; }
         [Required]
         [Column(TypeName = "nvarchar(250)'")]
-        public string? ProductName { get; set; }
+        public string? Productname { get; set; }
 
         public string? Manufacturer { get; set; }
 
@@ -18,7 +18,7 @@ namespace BT_API.Models
 
         public string? Barcode { get; set; }
 
-        public string? CO2 { get; set; }
+        public string? Co2 { get; set; }
 
         public int? Marking { get; set; }
 
