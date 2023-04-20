@@ -27,7 +27,7 @@ namespace BT_API.Models
             return response;
         }
 
-        public ProductResponse Get(int id)
+        public ProductResponse GetById(int id)
         {
             ProductResponse response = new ProductResponse();
             Product product = new Product();
@@ -117,7 +117,7 @@ namespace BT_API.Models
             return response;
         }
 
-        public ProductResponse Remove(int id)
+        public ProductResponse Delete(int id)
         {
             ProductResponse response = new ProductResponse();
             SqlManager sql = new SqlManager();
@@ -150,7 +150,7 @@ namespace BT_API.Models
                 Console.WriteLine("Failed to connect to the database!");
             }
             Console.WriteLine("Connect to the database was successful.\n");
-            int i = sql.ExecuteQuery("UPDATE product set Product_Name='" + item.Productname + "',Barcode='" + item.Barcode + "',CO2 = '" + item.Co2 + "',Description='" + item.Description + "',Marking='" + item.Marking + "',Manufacturer='" + item.Manufacturer + "',Origin='" + item.Origin + "' where Id= '" + item.Id + "';");
+            int i = sql.ExecuteQuery("UPDATE product set productname='" + item.Productname + "',manufacturer='" + item.Manufacturer + "',barcode='" + item.Barcode + "',description='" + item.Description + "',co2 = '" + item.Co2 + "',marking='" + item.Marking + "',origin='" + item.Origin + "' where id= '" + item.Id + "';");
             if (i < 0)
             {
                 response.Status = false;
